@@ -7,57 +7,23 @@ struct movieDetail{
     int id;
     int movieSeat;
 };
-void viewMovies(){
-    
-    movieDetail movie1;
-    movie1.movieNum = 1;
-    cout<<"Movie Number: "<<movie1.movieNum<<endl;
-    movie1.name="Frozen II";
-    cout<<"Movie Name: "<<movie1.name<<endl;
-    movie1.id=432;
-    cout<<"Id# "<<movie1.id<<endl;
-    movie1.movieSeat=100;
-    cout<<"Available seats for the movie are: "<<movie1.movieSeat<<endl;
-    
-    movieDetail movie2;
-    movie2.movieNum = 2;
-    cout<<"\nMovie Number: "<<movie2.movieNum<<endl;
-    movie2.name="Titanic";
-    cout<<"Movie Name: "<<movie2.name<<endl;
-    movie2.id=654;
-    cout<<"Id# "<<movie2.id<<endl;
-    movie2.movieSeat=50;
-    cout<<"Available seats for the movie are: "<<movie2.movieSeat<<endl;
-    
-    movieDetail movie3;
-    movie3.movieNum = 3;
-    cout<<"\nMovie Number: "<<movie3.movieNum<<endl;
-    movie3.name="Spider-Man";
-    cout<<"Movie Name: "<<movie3.name<<endl;
-    movie3.id=639;
-    cout<<"Id# "<<movie3.id<<endl;
-    movie3.movieSeat=50;
-    cout<<"Available seats for the movie are: "<<movie3.movieSeat<<endl;
-    
-    movieDetail movie4;
-    movie4.movieNum = 4;
-    cout<<"\nMovie Number: "<<movie4.movieNum<<endl;
-    movie4.name="Toy Story 4";
-    cout<<"Movie Name: "<<movie4.name<<endl;
-    movie4.id=598;
-    cout<<"Id# "<<movie4.id<<endl;
-    movie4.movieSeat=50;
-    cout<<"Available seats for the movie are: "<<movie4.movieSeat<<endl;
-    
-    movieDetail movie5;
-    movie5.movieNum = 5;
-    cout<<"\nMovie Number: "<<movie5.movieNum<<endl;
-    movie5.name="The Lion King";
-    cout<<"Movie Name: "<<movie5.name<<endl;
-    movie5.id=412;
-    cout<<"Id# "<<movie5.id<<endl;
-    movie5.movieSeat=150;
-    cout<<"Available seats for the movie are: "<<movie5.movieSeat<<endl;
+movieDetail movies[5];
+
+void initializeMovies() {
+    movies[0] = {1, "Frozen II", 432, 100};
+    movies[1] = {2, "Titanic", 654, 50};
+    movies[2] = {3, "Spider-Man", 639, 50};
+    movies[3] = {4, "Toy Story 4", 598, 50};
+    movies[4] = {5, "The Lion King", 412, 150};
+}
+
+void viewMovies() {
+    for (int i = 0; i < 5; ++i) {
+        cout << "\nMovie Number: " << movies[i].movieNum << endl;
+        cout << "Movie Name: " << movies[i].name << endl;
+        cout << "Id#: " << movies[i].id << endl;
+        cout << "Available seats for the movie are: " << movies[i].movieSeat << endl;
+    }
 }
 void one(){
     movieDetail movie1;
@@ -193,6 +159,8 @@ void cancel(){
 int main()
 {
     int n,y;
+    
+    initializeMovies();
     
     cout << "********************************************************************************" << endl;
     cout << "*                          Movie Ticket Booking System                         *" << endl;
